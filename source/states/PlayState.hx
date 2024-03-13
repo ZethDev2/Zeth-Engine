@@ -1,4 +1,4 @@
-package states; Accuracy
+package states;
 
 import backend.Highscore;
 import backend.StageData;
@@ -1124,9 +1124,9 @@ class PlayState extends MusicBeatState
 			str += ' (${percent}%) - ${ratingFC}';
 		}
 
-		var tempScore:String = ' Score: ${songScore}'
-		+ (!instakillOnMiss ? '  Misses: ${songMisses}' : "")
-		+ '  Accuracy:${str}';
+		var tempScore:String = '    Score: ${songScore}'
+		+ (!instakillOnMiss ? '     Misses: ${songMisses}' : "")
+		+ '     Accuracy:${str}';
 		// "tempScore" variable is used to prevent another memory leak, just in case
 		// "\n" here prevents the text from being cut off by beat zooms
 		scoreTxt.text = '${tempScore}\n';
@@ -2812,7 +2812,7 @@ class PlayState extends MusicBeatState
 				//subtract += 0.385; // you take more damage if playing with this gameplay changer enabled.
 				// i mean its fair :p -Crow
 				subtract *= note.tail.length + 1;
-				// i think it would be fair if damage multiplied based on how long the sustain is -Tahir
+				// i think it would be fair if damage multiplied based on how long the sustain is -Tahir accuracy
 			}
 
 			if (note.missed)

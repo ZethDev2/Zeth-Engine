@@ -981,7 +981,7 @@ class PlayState extends MusicBeatState
 			}
 			moveCameraSection();
 
-			startTimer = new FlxTimer().start(Conductor.crochet / 1000 / playbackRate, function(tmr:FlxTimer)
+			startTimer = new FlxTimer().start(Conductor.crochet / 1000 / playbackRate, function(tmr:FlxTimer) //flxtext
 			{
 				characterBopper(tmr.loopsLeft);
 
@@ -3542,5 +3542,13 @@ class PlayState extends MusicBeatState
 		#end
 		return false;
 	}
+	#end
+
+	var watermarks1: FlxText;
+
+		public function() new {
+			watermarks1 = new FlxText(0, 0, 0 "ZE V.1.1.3")
+			add(watermarks1) // watermark
+		}
 	#end
 }

@@ -1,4 +1,4 @@
-# Psych Engine Build Instructions
+# Zeth Engine Engine Build Instructions
 
 * [Dependencies](#dependencies)
 * [Building](#building)
@@ -88,17 +88,6 @@ sit back, relax, wait for haxelib to do its magic, and once everything is done, 
 where `<platform>` gets replaced with `windows`, `linux`, or `mac`
 
 ---
-
-### "It's taking a while, should I be worried?"
-
-No, that is normal, when you compile flixel games for the first time, it usually takes around 5 to 10 minutes,
-it really depends on how powerful your hrdware is
-
-### "I had an error saying that 'hxCodec' could not be found!"
-
-Refer to Issue ShadowMario/FNF-PsychEngine#12770.
-
-### "I had an error relating to g++ on Linux!"
 
 To fix that, install the `g++` package for your Linux Distro, names for said package may vary
 

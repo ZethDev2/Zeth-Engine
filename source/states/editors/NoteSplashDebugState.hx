@@ -31,7 +31,7 @@ class NoteSplashDebugState extends MusicBeatState
 	var missingTextBG:FlxSprite;
 	var missingText:FlxText;
 
-	public static final defaultTexture:String = 'noteSplashes-vanilla';
+	public static final defaultTexture:String = 'noteSplashes-vanilla1';
 
 	override function create()
 	{

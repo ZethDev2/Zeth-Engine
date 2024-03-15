@@ -960,7 +960,7 @@ class PlayState extends MusicBeatState
 			for (i in 0...opponentStrums.length) {
 				setOnScripts('defaultOpponentStrumX' + i, opponentStrums.members[i].x);
 				setOnScripts('defaultOpponentStrumY' + i, opponentStrums.members[i].y);
-				//if(ClientPrefs.data.middleScroll) opponentStrums.members[i].visible = false;
+				//if(ClientPrefs.data.middleScroll) opponentStrums.members[i].visible = false; accuracy
 			}
 
 			startedCountdown = true;
@@ -1125,8 +1125,8 @@ class PlayState extends MusicBeatState
 		}
 
 		var tempScore:String = '    Score: ${songScore}'
-		+ (!instakillOnMiss ? '     Misses: ${songMisses}' : "")
-		+ '     Accuracy:${str}';
+		+ (!instakillOnMiss ? '        Combo Breaks: ${songMisses}' : "")
+		+ '           Accuracy:${str}';
 		// "tempScore" variable is used to prevent another memory leak, just in case
 		// "\n" here prevents the text from being cut off by beat zooms
 		scoreTxt.text = '${tempScore}\n';
@@ -1148,8 +1148,8 @@ class PlayState extends MusicBeatState
 		if(songMisses == 0)
 		{
 			if (bads > 0 || shits > 0) ratingFC = 'FC';
-			else if (goods > 0) ratingFC = 'MFC';
-			else if (sicks > 0) ratingFC = 'SFC';
+			else if (goods > 0) ratingFC = 'GFC';
+			else if (sicks > 0) ratingFC = 'MFC';
 		}
 		else {
 			if (songMisses < 10) ratingFC = 'SDCB';
@@ -1164,8 +1164,8 @@ class PlayState extends MusicBeatState
 		if(scoreTxtTween != null)
 			scoreTxtTween.cancel();
 
-		scoreTxt.scale.x = 1.075;
-		scoreTxt.scale.y = 1.075;
+		scoreTxt.scale.x = 1;
+		scoreTxt.scale.y = 1;
 		scoreTxtTween = FlxTween.tween(scoreTxt.scale, {x: 1, y: 1}, 0.2, {
 			onComplete: function(twn:FlxTween) {
 				scoreTxtTween = null;
@@ -3542,13 +3542,5 @@ class PlayState extends MusicBeatState
 		#end
 		return false;
 	}
-	#end
-
-	var watermarks1: FlxText;
-
-		public function() new {
-			watermarks1 = new FlxText(0, 0, 0 "ZE V.1.1.3")
-			add(watermarks1) // watermark
-		}
 	#end
 }

@@ -9,8 +9,8 @@ import options.OptionsState;
 
 class MainMenuState extends MusicBeatState
 {
-	public static var psychEngineVersion:String = '1.2'; // This is also used for Discord RPC
-	public static var FNFVersionString:String = '0.2.7.1';
+	public static var psychEngineVersion:String = '1.2.1'; // This is also used for Discord RPC
+	public static var FNFVersionString:String = '0.2.8';
 	public static var curSelected:Int = 0;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
@@ -18,9 +18,6 @@ class MainMenuState extends MusicBeatState
 	var optionShit:Array<String> = [
 		'story_mode',
 		'freeplay',
-		#if MODS_ALLOWED 'mods', #end
-		#if ACHIEVEMENTS_ALLOWED 'awards', #end
-		'credits',
 		#if !switch 'donate', #end
 		'options'
 	];
@@ -85,7 +82,7 @@ class MainMenuState extends MusicBeatState
 				scr = 0;
 			menuItem.scrollFactor.set(0, scr);
 			menuItem.updateHitbox();
-			menuItem.x = 100;
+			menuItem.screenCenter(x)
 		}
 
 		var psychVer:FlxText = new FlxText(12, FlxG.height - 44, 0, "Zeth Engine " + psychEngineVersion, 12);
@@ -162,19 +159,8 @@ class MainMenuState extends MusicBeatState
 								MusicBeatState.switchState(new StoryMenuState());
 							case 'freeplay':
 								MusicBeatState.switchState(new FreeplayState());
-
-							#if MODS_ALLOWED
-							case 'mods':
-								MusicBeatState.switchState(new ModsMenuState());
-							#end
-
-							#if ACHIEVEMENTS_ALLOWED
-							case 'awards':
-								MusicBeatState.switchState(new AchievementsMenuState());
-							#end
-
-							case 'credits':
-								MusicBeatState.switchState(new CreditsState());
+							//case 'credits':
+								//limMusicBeatState.switchState(new CreditsState());
 							case 'options':
 								MusicBeatState.switchState(new OptionsState());
 								OptionsState.onPlayState = false;
@@ -217,6 +203,8 @@ class MainMenuState extends MusicBeatState
 	{
 		FlxG.sound.play(Paths.sound('scrollMenu'));
 		menuItems.members[curSelected].animation.play('idle');
+		menuItems.members[curSelected].updateHitbox();
+		menuItems.members[curSelected].screenCenter(X);
 
 		curSelected += huh;
 
@@ -226,6 +214,8 @@ class MainMenuState extends MusicBeatState
 			curSelected = menuItems.length - 1;
 
 		menuItems.members[curSelected].animation.play('selected'); // menuItems.members[curSelected].centerOffsets()
+		menuItems.members[curSelected].centerOffsets();
+		menuItems.members[curSelected].screenCenter(X);
 
 		camFollow.setPosition(menuItems.members[curSelected].getGraphicMidpoint().x,
 			menuItems.members[curSelected].getGraphicMidpoint().y - (menuItems.length > 4 ? menuItems.length * 8 : 0));

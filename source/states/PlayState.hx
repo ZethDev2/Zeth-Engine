@@ -266,7 +266,7 @@ class PlayState extends MusicBeatState
 
 	override public function create()
 	{
-		//trace('Playback Rate: ' + playbackRate);
+		//trace('Playback Rate: ' + playbackRate); accuracy
 		Paths.clearStoredMemory();
 
 		startCallback = startCountdown;
@@ -276,7 +276,7 @@ class PlayState extends MusicBeatState
 		instance = this;
 
 		PauseSubState.songName = null; //Reset to default
-		playbackRate = ClientPrefs.getGameplaySetting('songspeed');
+		playbackRate = ClientPrefs.getGameplaySetting('songspeed'); // health
 
 		keysArray = [
 			'note_left',
@@ -1121,12 +1121,12 @@ class PlayState extends MusicBeatState
 		if(totalPlayed != 0)
 		{
 			var percent:Float = CoolUtil.floorDecimal(ratingPercent * 100, 2);
-			str += ' (${percent}%) - ${ratingFC}';
+			str += ' ${percent} - ${ratingFC}';
 		}
 
 		var tempScore:String = '    Score: ${songScore}'
 		+ (!instakillOnMiss ? '        Combo Breaks: ${songMisses}' : "")
-		+ '           Accuracy:${str}';
+		+ '         Accuracy:${str}';
 		// "tempScore" variable is used to prevent another memory leak, just in case
 		// "\n" here prevents the text from being cut off by beat zooms
 		scoreTxt.text = '${tempScore}\n';

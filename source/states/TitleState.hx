@@ -551,14 +551,14 @@ class TitleState extends MusicBeatState
 					#if PSYCH_WATERMARKS
 					createCoolText(['Psych Engine by'], 40);
 					#else
-					createCoolText(['Zeth Engine by']);
+					createCoolText(['Present']);
 					#end
 				case 4:
 					#if PSYCH_WATERMARKS
 					addMoreText('Shadow Mario', 40);
 					addMoreText('Riveren', 40);
 					#else
-					addMoreText('ZethDev');
+					addMoreText('Zeth Engine');
 					#end
 				case 5:
 					deleteCoolText();
@@ -583,9 +583,9 @@ class TitleState extends MusicBeatState
 				case 14:
 					addMoreText('Zeth');
 				case 15:
-					addMoreText('Engine');
+					addMoreText('Dev');
 				case 16:
-					addMoreText('FNF'); // credTextShit.text += '\nFunkin';
+					addMoreText('Is POG'); // credTextShit.text += '\nFunkin';
 
 				case 17:
 					skipIntro();
